@@ -32,6 +32,8 @@ class MainPanelProvider extends PanelProvider
                 'primary' => Color::Emerald,
             ])
             ->viteTheme('resources/css/filament/main/theme.css')
+            ->sidebarCollapsibleOnDesktop()
+            ->maxContentWidth('full')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([

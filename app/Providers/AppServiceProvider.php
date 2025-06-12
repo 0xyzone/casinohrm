@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use Filament\View\PanelsRenderHook;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\ServiceProvider;
+use Filament\Support\Facades\FilamentView;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +22,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::USER_MENU_BEFORE,
+            fn(): View => view('top.notice'),
+        );
     }
 }
